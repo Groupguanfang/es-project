@@ -49,7 +49,6 @@ export class Logger {
         console.log(`${chalk.greenBright('✔')} ${chalk.green(key)}: ${value}`)
     }
 
-    console.log(`${chalk.yellowBright('Do you want create a project with this template?')}`)
     console.log()
     return true
   }

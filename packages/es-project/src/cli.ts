@@ -55,6 +55,14 @@ export async function startPrompts({
     'Project Path': (path.isAbsolute(projectPath) ? path.relative(cwd(), projectPath) : projectPath) || chalk.dim('Current directory'),
   })
 
+  const { isConfirm } = await prompts([
+    {
+      type: 'confirm',
+      name: 'isConfirm',
+      message: `${chalk.yellowBright('Do you want create a project with this template?')}`,
+    },
+  ])
+  if (!isConfirm) return
   await downloadPackage(findPackageInfo.package.name, findPackageInfo.package.version)
 }
 
