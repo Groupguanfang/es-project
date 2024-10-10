@@ -3,8 +3,10 @@ import { defineConfig } from 'tsup'
 export default defineConfig({
   entry: {
     cli: 'src/cli.ts',
+    index: 'src/index.ts',
   },
-  format: 'esm',
+  format: ['esm', 'cjs'],
   clean: true,
-  sourcemap: 'inline',
+  dts: true,
+  sourcemap: true,
 })

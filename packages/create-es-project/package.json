@@ -1,0 +1,28 @@
+{
+  "name": "create-es-project",
+  "type": "module",
+  "version": "0.0.1",
+  "description": "Terminal tool for create project with npm.",
+  "author": "Naily Zero <zero@naily.cc> (https://naily.cc)",
+  "license": "MIT",
+  "keywords": [
+    "cli",
+    "create",
+    "project"
+  ],
+  "bin": {
+    "create-es-project": "./bin/cli.js"
+  },
+  "files": [
+    "bin",
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup && node bin/cli.js",
+    "watch": "tsup --watch"
+  },
+  "dependencies": {
+    "es-project": "workspace:*"
+  }
+}

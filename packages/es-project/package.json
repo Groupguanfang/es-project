@@ -10,6 +10,14 @@
     "create",
     "project"
   ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "bin": {
     "es-project": "./bin/cli.js"
   },
@@ -20,7 +28,8 @@
   "scripts": {
     "build": "tsup",
     "dev": "tsup && node bin/cli.js",
-    "watch": "tsup --watch"
+    "watch": "tsup --watch",
+    "prepublishOnly": "tsup"
   },
   "dependencies": {
     "axios": "^1.7.7",
