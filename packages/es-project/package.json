@@ -1,0 +1,37 @@
+{
+  "name": "es-project",
+  "type": "module",
+  "version": "0.0.1",
+  "description": "A cli for clone project with npm.",
+  "author": "Naily Zero <zero@naily.cc> (https://naily.cc)",
+  "license": "MIT",
+  "keywords": [
+    "cli",
+    "create",
+    "project"
+  ],
+  "bin": {
+    "es-project": "./bin/cli.js"
+  },
+  "files": [
+    "bin",
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup && node bin/cli.js",
+    "watch": "tsup --watch"
+  },
+  "dependencies": {
+    "axios": "^1.7.7",
+    "chalk": "^5.3.0",
+    "commander": "^12.1.0",
+    "ora": "^8.1.0",
+    "prompts": "^2.4.2",
+    "tar": "^7.4.3"
+  },
+  "devDependencies": {
+    "@types/prompts": "^2.4.9",
+    "tsup": "8.1.0"
+  }
+}

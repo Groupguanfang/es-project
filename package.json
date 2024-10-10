@@ -1,0 +1,28 @@
+{
+  "packageManager": "pnpm@8.8.0",
+  "author": "Zero <gczgroup@qq.com>",
+  "scripts": {
+    "lint": "eslint . --fix",
+    "prepare": "husky install",
+    "lint-staged": "lint-staged"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^2.16.1",
+    "@changesets/cli": "^2.27.1",
+    "@commitlint/cli": "^17.8.1",
+    "@commitlint/config-conventional": "^17.8.1",
+    "@commitlint/types": "^17.8.1",
+    "@types/node": "^20.11.30",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "eslint": "^8.57.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.2",
+    "typescript": "^5.4.2",
+    "vitest": "^1.4.0"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,md,vue,json,scss,less,html}": [
+      "eslint . --fix"
+    ]
+  }
+}
