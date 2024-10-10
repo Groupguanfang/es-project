@@ -36,7 +36,7 @@ export function useTemplateResolver({
 
     try {
       const res = await axios.get<SearchResult>('/-/v1/search', {
-        params: { text: 'keywords:malagu-component' },
+        params: { text: 'keywords:es-project-template' },
       })
       if (logger) logger.succeed(`Fetched templates successfully, total: ${res.data.total}`)
       return res.data
