@@ -37,6 +37,8 @@ export async function startPrompts({
     },
   ])
 
+  if (!result.project_template_name) return
+
   if (!path.isAbsolute(projectPath)) {
     projectPath = path.resolve(cwd(), projectPath)
     if (fs.existsSync(projectPath)) {
