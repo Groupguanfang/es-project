@@ -30,7 +30,9 @@ export async function startPrompts({
       name: 'project_template_name',
       message: 'Choose or enter some keywords to search for a template:',
       choices: templates.objects.map(item => ({
-        title: item.package.name,
+        title: item.package.name.startsWith('es-project-template-')
+          ? item.package.name.slice('es-project-template-'.length)
+          : item.package.name,
         value: item.package.name,
         description: item.package.description || 'No description',
       })),

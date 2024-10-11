@@ -1,7 +1,7 @@
 {
   "name": "create-es-project",
   "type": "module",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Terminal tool for create project with npm.",
   "author": "Naily Zero <zero@naily.cc> (https://naily.cc)",
   "license": "MIT",
