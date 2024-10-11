@@ -36,7 +36,13 @@ export function useTemplateResolver({
 
     try {
       const res = await axios.get<SearchResult>('/-/v1/search', {
-        params: { text: 'keywords:es-project-template' },
+        params: {
+          text: 'keywords:es-project-template',
+          cacheBust: Date.now(),
+        },
+        headers: {
+          'Cache-Control': 'no-cache',
+        },
       })
       if (logger) logger.succeed(`Fetched templates successfully, total: ${res.data.total}`)
       return res.data
