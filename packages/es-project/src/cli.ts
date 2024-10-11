@@ -69,9 +69,9 @@ export async function startPrompts({
 }
 
 export function start() {
-  program.version('0.0.1', '-v,--version').description('es-project CLI').name('es-project')
-    .option('-registry, --registry <registry>', 'Set the registry')
-    .option('-size, --size <size>', 'Set the size')
+  program.version('0.0.1', '-v, --version').description('es-project CLI').name('es-project')
+    .option('-r, --registry <registry>', 'Set the registry')
+    .option('-s, --size <size>', 'Set the size')
     .argument('[project_path]', 'Project path', cwd())
     .action((path: string, options: Options) => {
       console.clear()
