@@ -32,7 +32,9 @@ export async function startPrompts({
       choices: templates.objects.map(item => ({
         title: item.package.name.startsWith('es-project-template-')
           ? item.package.name.slice('es-project-template-'.length)
-          : item.package.name,
+          : item.package.name.startsWith('@es-project-template/')
+            ? item.package.name.slice('@es-project-template/'.length)
+            : item.package.name,
         value: item.package.name,
         description: item.package.description || 'No description',
       })),

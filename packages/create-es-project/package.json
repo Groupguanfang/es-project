@@ -1,14 +1,15 @@
 {
   "name": "create-es-project",
   "type": "module",
-  "version": "0.0.5",
-  "description": "Terminal tool for create project with npm.",
+  "version": "0.0.6",
+  "description": "Terminal tool for clone project with npm.",
   "author": "Naily Zero <zero@naily.cc> (https://naily.cc)",
   "license": "MIT",
   "keywords": [
     "cli",
     "create",
-    "project"
+    "project",
+    "es-project-template"
   ],
   "bin": {
     "create-es-project": "./bin/cli.js"
