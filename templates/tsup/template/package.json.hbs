@@ -7,16 +7,18 @@
   "keywords": [
     "es-project-template"
   ],
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
   "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs",
-      "types": "./dist/index.d.ts"
-    }
+    {{#each (split entry) as |file|}}
+    "./{{file}}": {
+      "types": "./dist/{{file}}.d.ts",
+      "import": "./dist/{{file}}.js",
+      "require": "./dist/{{file}}.cjs"
+    }{{#unless @last}},{{/unless}}
+    {{/each}}
   },
+  "main": "./dist/{{#with (split entry) as |items|}}{{items.[0]}}{{/with}}.cjs",
+  "module": "./dist/{{#with (split entry) as |items|}}{{items.[0]}}{{/with}}.js",
+  "types": "./dist/{{#with (split entry) as |items|}}{{items.[0]}}{{/with}}.d.ts",
   "scripts": {
     "build": "tsup",
     "watch": "tsup -w"
