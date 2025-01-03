@@ -75,7 +75,7 @@ export async function downloadTemplate(packageJson: FetchedTemplate): Promise<st
   if (!fs.existsSync(outputDir))
     fs.mkdirSync(outputDir, { recursive: true })
   await extract(cachePath, outputDir)
-  return outputDir
+  return path.resolve(outputDir, 'package')
 }
 
 function writeNpmPackage(data: Stream): Promise<string> {
