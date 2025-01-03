@@ -1,0 +1,12 @@
+{
+  "name": "base",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "new": "es-project create"
+  },
+  "dependencies": {
+    "es-project": "workspace:*"
+  }
+}

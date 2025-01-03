@@ -1,0 +1,23 @@
+{
+  "name": "@es-project-template/tsup",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Create a project with tsup.",
+  "keywords": [
+    "es-project-template"
+  ],
+  "es-project": {
+    "version": 1,
+    "generatorScript": "./dist/plopfile.js"
+  },
+  "files": [
+    "dist",
+    "template"
+  ],
+  "scripts": {
+    "build": "tsup"
+  },
+  "dependencies": {
+    "es-project": "workspace:*"
+  }
+}
