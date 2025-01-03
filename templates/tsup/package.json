@@ -1,7 +1,7 @@
 {
   "name": "@es-project-template/tsup",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Create a project with tsup.",
   "keywords": [
     "es-project-template"
