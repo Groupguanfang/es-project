@@ -80,6 +80,7 @@ export async function startCreateProject(createOptions: CreateProjectOptions = {
   const mod = await importx(generatorScriptPath, cwd())
   const fn = getModuleDefaultFn(mod)
   await fn(context)
+  fs.rmSync(outputDir, { recursive: true, force: true })
 }
 
 export type ModuleDefaultFn = (ctx: Context) => Awaitable<unknown>
