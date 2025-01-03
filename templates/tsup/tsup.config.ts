@@ -2,7 +2,7 @@ import { defineConfig } from 'tsup'
 
 export default defineConfig({
   entry: {
-    index: './src/index.ts',
+    plopfile: './src/plopfile.ts',
   },
   dts: true,
   sourcemap: true,

@@ -15,16 +15,22 @@ import { resolvePackageJsonOptions } from './package-json-options'
 import { downloadTemplate, fetchTemplate, fetchTemplates } from './template-resolver'
 import { typeAssert } from './utils'
 
-export async function startCreateProject(basePath: string = cwd(), baseURL: string = 'https://registry.npmjs.org'): Promise<void> {
+export interface CreateProjectOptions {
+  basePath?: string
+  baseURL?: string
+  templates?: ResolvedTemplate[]
+}
+
+export async function startCreateProject(createOptions: CreateProjectOptions = {}): Promise<void> {
   clear()
 
-  const templates = await unwrapFetchTemplates(baseURL)
+  const templates = await unwrapFetchTemplates(createOptions.baseURL)
   const result = await prompts([
     {
       type: 'autocomplete',
       name: 'packageName',
       message: 'Select a template:',
-      choices: templates.map(template => ({
+      choices: (createOptions.templates || templates).map(template => ({
         title: template.title,
         description: template.description,
         value: template.name,
@@ -51,7 +57,7 @@ export async function startCreateProject(basePath: string = cwd(), baseURL: stri
   Version: ${info.version}
   Description: ${info.description}
   License: ${info.license || 'None'}
-  Where to generate: ${basePath}
+  Where to generate: ${createOptions.basePath || cwd()}
   `)
 
   const confirmPrompts = await prompts({
@@ -70,7 +76,7 @@ export async function startCreateProject(basePath: string = cwd(), baseURL: stri
   if (!fs.existsSync(generatorScriptPath))
     throw new Error(`Generator script not found: ${generatorScriptPath}`)
 
-  const context = await createPlopContext(basePath)
+  const context = await createPlopContext(createOptions.basePath || cwd())
   const mod = await importx(generatorScriptPath, cwd())
   const fn = getModuleDefaultFn(mod)
   await fn(context)
@@ -88,10 +94,13 @@ function getModuleDefaultFn(mod: any): ModuleDefaultFn {
     throw new Error('Invalid generator script, the default export must be a function.')
 }
 
-async function createPlopContext(basePath: string): Promise<Context> {
+export async function createPlopContext(basePath: string): Promise<Context> {
   const plop = await nodePlop()
   return Object.assign(plop, {
     getBasePath: () => basePath,
+    run: async (generator) => {
+      await generator.runActions(await generator.runPrompts())
+    },
   } as EsProjectContext)
 }
 

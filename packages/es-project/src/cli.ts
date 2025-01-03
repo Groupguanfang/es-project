@@ -13,7 +13,10 @@ cli.command('create [path]', 'Create a new project.')
     if (options.open) {
       return console.warn('Currently, the --open option is not supported, please wait in future.')
     }
-    await startCreateProject(path, options.registry)
+    await startCreateProject({
+      basePath: path,
+      baseURL: options.registry,
+    })
   })
 
 cli.help().parse()

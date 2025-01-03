@@ -2,10 +2,12 @@ import { defineConfig } from 'tsup'
 
 export default defineConfig({
   entry: {
-    index: './src/index.ts',
+    {{#each (split entry) as |file|}}
+    {{file}}: './src/{{file}}.ts',
+    {{/each}}
   },
-  dts: true,
-  sourcemap: true,
-  clean: true,
-  format: ['cjs', 'esm'],
+  dts: {{dts}},
+  sourcemap: {{sourcemap}},
+  clean: {{clean}},
+  format: [{{#each format}}'{{this}}'{{#unless @last}}, {{/unless}}{{/each}}],
 });

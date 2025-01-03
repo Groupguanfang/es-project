@@ -15,7 +15,9 @@
     "template"
   ],
   "scripts": {
-    "build": "tsup"
+    "build": "tsup",
+    "test": "tsx test/index.ts",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "es-project": "workspace:*"

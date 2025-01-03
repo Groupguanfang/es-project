@@ -1,7 +1,8 @@
-import type { NodePlopAPI } from 'node-plop'
+import type { NodePlopAPI, PlopGenerator } from 'node-plop'
 
 export interface EsProjectContext {
   getBasePath: () => string
+  run: (generator: PlopGenerator) => Promise<void>
 }
 
 export interface Context extends NodePlopAPI, EsProjectContext {}
