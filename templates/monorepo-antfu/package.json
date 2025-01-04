@@ -2,7 +2,7 @@
   "name": "@es-project-template/monorepo-antfu",
   "type": "module",
   "version": "1.0.0",
-  "description": "Create a monorepo with antfu&#x27;s code style.",
+  "description": "Create a monorepo with antfu's code style.",
   "keywords": [
     "es-project-template"
   ],
@@ -14,6 +14,9 @@
     "dist",
     "template"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsup",
     "test": "rimraf dist && tsx test/index.ts",
