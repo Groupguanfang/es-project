@@ -19,6 +19,9 @@
     "test": "tsx test/index.ts",
     "prepublishOnly": "npm run build"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "es-project": "{{#if isInEsProject}}workspace:*{{else}}latest{{/if}}"
   }
