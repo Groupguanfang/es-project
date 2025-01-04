@@ -10,9 +10,6 @@ describe('template resolver', () => {
 
   it('should fetch template', async () => {
     const template = await fetchTemplate('vue')
-
-    console.dir(template, { depth: null })
-
     expect(template).toBeDefined()
   })
 })

@@ -1,5 +1,6 @@
 import type { Stream } from 'node:stream'
 import type { PackageJson } from 'type-fest'
+import type { I18n } from './types'
 import fs from 'node:fs'
 import path from 'node:path'
 import { cwd, env } from 'node:process'
@@ -63,9 +64,12 @@ export async function fetchTemplate(
   return response.data
 }
 
-export async function downloadTemplate(packageJson: FetchedTemplate): Promise<string> {
+export async function downloadTemplate<
+  T extends Record<string, Record<string, any>>,
+  L extends keyof T,
+>(packageJson: FetchedTemplate, i18n: I18n<T, L>): Promise<string> {
   if (!packageJson.dist?.tarball)
-    throw new Error(`No tarball found in package ${packageJson.name}, cannot download template.`)
+    throw new Error(i18n.t('no-tarball-found', [packageJson.name]))
 
   const response = await axios.get<Stream>(packageJson.dist.tarball, {
     responseType: 'stream',

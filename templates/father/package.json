@@ -1,0 +1,25 @@
+{
+  "name": "@es-project-template/father",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Create a es-project template.",
+  "keywords": [
+    "es-project-template"
+  ],
+  "es-project": {
+    "version": 1,
+    "generatorScript": "./dist/plopfile.js"
+  },
+  "files": [
+    "dist",
+    "template"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "test": "tsx test/index.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "es-project": "workspace:*"
+  }
+}

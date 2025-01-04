@@ -1,0 +1,12 @@
+import { defineConfig } from 'tsup'
+
+export default defineConfig({
+  entry: {
+    plopfile: './src/plopfile.ts',
+  },
+  dts: true,
+  sourcemap: true,
+  clean: true,
+  format: ['cjs', 'esm'],
+  external: [],
+});

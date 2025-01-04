@@ -1,0 +1,22 @@
+{
+  "en": {
+    "project-name": "Project Name:",
+    "project-description": "Project Description:",
+    "project-type": "Are you want to create a library or a application?",
+    "project-type-lib": "library",
+    "project-type-app": "application",
+    "edit-readme": "Do you want to edit the README.md file now?",
+    "readme-content": "Please enter the content of the README.md file:",
+    "readme-content-default": "# My Project\n\n> This is a monorepo project created by es-project."
+  },
+  "zh": {
+    "project-name": "项目名称:",
+    "project-description": "项目描述:",
+    "project-type": "你想要创建一个库还是一个应用?",
+    "project-type-lib": "库",
+    "project-type-app": "应用",
+    "edit-readme": "你想现在编辑 README.md 文件吗?",
+    "readme-content": "请输入 README.md 文件的内容:",
+    "readme-content-default": "# 我的项目\n\n> 这是一个使用 es-project 创建的 monorepo 项目。"
+  }
+}
