@@ -2,3 +2,5 @@ node_modules
 dist
 .es-project
 .DS_Store
+generated
+coverage
