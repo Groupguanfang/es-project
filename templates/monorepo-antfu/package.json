@@ -1,7 +1,7 @@
 {
   "name": "@es-project-template/monorepo-antfu",
   "type": "module",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Create a monorepo with antfu's code style.",
   "keywords": [
     "es-project-template"

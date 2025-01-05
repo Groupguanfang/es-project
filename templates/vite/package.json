@@ -1,7 +1,7 @@
 {
   "name": "@es-project-template/vite",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Shortcut to redirect es-project cli to vite cli.",
   "keywords": [
     "es-project-template"

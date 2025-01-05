@@ -1,7 +1,7 @@
 {
   "name": "@es-project-template/unplugin",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Create a unplugin with unplugin-starter",
   "keywords": [
     "es-project-template"

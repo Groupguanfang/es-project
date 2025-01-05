@@ -1,7 +1,7 @@
 {
   "name": "es-project",
   "type": "module",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Terminal tool for clone project with npm.",
   "author": "Naily Zero <zero@naily.cc> (https://naily.cc)",
   "exports": {
