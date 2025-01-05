@@ -132,6 +132,12 @@ importers:
         specifier: workspace:*
         version: link:../../packages/es-project
 
+  templates/vite:
+    dependencies:
+      es-project:
+        specifier: workspace:*
+        version: link:../../packages/es-project
+
 packages:
 
   '@ampproject/remapping@2.3.0':

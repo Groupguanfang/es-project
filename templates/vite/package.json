@@ -1,0 +1,28 @@
+{
+  "name": "@es-project-template/vite",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Shortcut to redirect es-project cli to vite cli.",
+  "keywords": [
+    "es-project-template"
+  ],
+  "es-project": {
+    "version": 1,
+    "generatorScript": "./dist/plopfile.js"
+  },
+  "files": [
+    "dist",
+    "template"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "test": "rimraf dist && tsx test/index.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "es-project": "workspace:*"
+  }
+}
