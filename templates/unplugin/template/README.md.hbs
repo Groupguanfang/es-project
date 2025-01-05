@@ -1,0 +1,119 @@
+# {{name}}
+
+[![NPM version](https://img.shields.io/npm/v/{{name}}?color=a1b858&label=)](https://www.npmjs.com/package/{{name}})
+
+{{description}}
+
+## Install
+
+```bash
+npm i {{name}}
+```
+
+{{#if (includes 'vite' support)}}
+<details>
+<summary>Vite</summary><br>
+
+```ts
+// vite.config.ts
+import {{short}} from '{{name}}/vite'
+
+export default defineConfig({
+  plugins: [
+    {{short}}({ /* options */ }),
+  ],
+})
+```
+
+Example: [`playground/`](./playground/)
+
+<br></details>
+{{/if}}
+
+{{#if (includes 'rollup' support)}}
+<details>
+<summary>Rollup</summary><br>
+
+```ts
+// rollup.config.js
+import {{short}} from '{{name}}/rollup'
+
+export default {
+  plugins: [
+    {{short}}({ /* options */ }),
+  ],
+}
+```
+
+<br></details>
+{{/if}}
+
+{{#if (includes 'webpack' support)}}
+<details>
+<summary>Webpack</summary><br>
+
+```ts
+// webpack.config.js
+module.exports = {
+  /* ... */
+  plugins: [
+    require('{{name}}/webpack')({ /* options */ })
+  ]
+}
+```
+
+<br></details>
+{{/if}}
+
+{{#if (includes 'nuxt' support)}}
+<details>
+<summary>Nuxt</summary><br>
+
+```ts
+// nuxt.config.js
+export default defineNuxtConfig({
+  modules: [
+    ['{{name}}/nuxt', { /* options */ }],
+  ],
+})
+```
+
+> This module works for both Nuxt 2 and [Nuxt Vite](https://github.com/nuxt/vite)
+
+<br></details>
+{{/if}}
+
+{{#if (includes 'webpack' support)}}
+<details>
+<summary>Vue CLI</summary><br>
+
+```ts
+// vue.config.js
+module.exports = {
+  configureWebpack: {
+    plugins: [
+      require('{{name}}/webpack')({ /* options */ }),
+    ],
+  },
+}
+```
+
+<br></details>
+{{/if}}
+
+{{#if (includes 'esbuild' support)}}
+<details>
+<summary>esbuild</summary><br>
+
+```ts
+// esbuild.config.js
+import { build } from 'esbuild'
+import {{short}} from '{{name}}/esbuild'
+
+build({
+  plugins: [{{short}}()],
+})
+```
+
+<br></details>
+{{/if}}

@@ -16,7 +16,7 @@
   ],
   "scripts": {
     "build": "tsup",
-    "test": "tsx test/index.ts",
+    "test": "rimraf dist && tsx test/index.ts",
     "prepublishOnly": "npm run build"
   },
   "publishConfig": {
