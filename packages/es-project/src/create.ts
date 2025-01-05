@@ -5,7 +5,7 @@ import type { Awaitable, Context, I18n } from './types'
 import { clear } from 'node:console'
 import fs from 'node:fs'
 import path from 'node:path'
-import { cwd, env, exit } from 'node:process'
+import process, { cwd, env, exit } from 'node:process'
 import { importx } from 'importx'
 import k from 'kleur'
 import ora from 'ora'
@@ -79,8 +79,8 @@ export async function startCreateProject(createOptions: CreateProjectOptions = {
 
   const mod = await importx(generatorScriptPath, cwd())
   const fn = getModuleDefaultFn(mod, i18n)
+  process.on('exit', () => fs.rmSync(outputDir, { recursive: true, force: true }))
   await fn(ctx)
-  fs.rmSync(outputDir, { recursive: true, force: true })
 }
 
 export type ModuleDefaultFn = (ctx: Context) => Awaitable<unknown>
