@@ -47,10 +47,10 @@ export async function createPlopContext(basePath: string): Promise<Context> {
       return env.LANG || 'en'
     },
     createI18n(messages, matcher: (locale: string, allLocales: string[]) => string = defaultMatcher) {
-      return createI18n(messages, matcher(ctx.locale, Object.keys(messages)))
+      return createI18n(messages as any, matcher(ctx.locale, Object.keys(messages)))
     },
     async createI18nAsync(messages, matcher = defaultMatcher as unknown as I18nMatcherAsync) {
-      return createI18n(messages, await matcher(ctx.locale, Object.keys(messages)))
+      return createI18n(messages as any, await matcher(ctx.locale, Object.keys(messages)))
     },
   }
 

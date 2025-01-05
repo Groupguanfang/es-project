@@ -30,6 +30,12 @@ export interface I18n<
 export type I18nMatcher = (locale: string, allLocales: string[]) => string
 export type I18nMatcherAsync = (locale: string, allLocales: string[]) => Promise<string>
 
+export interface I18nMessage {
+  zh: Record<string, any>
+  en: Record<string, any>
+  [k: string]: Record<string, any>
+}
+
 export interface EsProjectContext {
   /**
    * Get the base path.
@@ -49,12 +55,12 @@ export interface EsProjectContext {
    * @param messages - The messages to translate.
    * @returns The i18n instance.
    */
-  createI18n<T extends Record<string, Record<string, any>>, L extends keyof T>(
-    messages: T,
+  createI18n<T extends I18nMessage, L extends keyof T>(
+    messages: Partial<T>,
     matcher?: I18nMatcher,
   ): I18n<T, L>
-  createI18nAsync<T extends Record<string, Record<string, any>>, L extends keyof T>(
-    messages: T,
+  createI18nAsync<T extends I18nMessage, L extends keyof T>(
+    messages: Partial<T>,
     matcher?: I18nMatcherAsync,
   ): Promise<I18n<T, L>>
   /**

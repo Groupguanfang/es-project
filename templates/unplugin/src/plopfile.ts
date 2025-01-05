@@ -6,8 +6,8 @@ if (!__dirname)
   __dirname = new URL('.', import.meta.url).pathname
 
 export default async function (ctx: Context): Promise<void> {
-  const generator = ctx.setGenerator('{{name}}', {
-    description: `{{{description}}}`,
+  const generator = ctx.setGenerator('@es-project-template/unplugin', {
+    description: `Create a unplugin with unplugin-starter`,
     prompts: [
       {
         type: 'input',
@@ -26,7 +26,7 @@ export default async function (ctx: Context): Promise<void> {
         path: path.resolve(ctx.getBasePath(), 'package.json'),
         templateFile: path.resolve(__dirname, '..', 'template', 'package.json.hbs'),
       },
-    ]
+    ],
   })
 
   ctx.run(generator)
