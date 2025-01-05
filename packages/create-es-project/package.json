@@ -1,7 +1,7 @@
 {
   "name": "create-es-project",
   "type": "module",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Terminal tool for clone project with npm.",
   "author": "Naily Zero <zero@naily.cc> (https://naily.cc)",
   "keywords": [
@@ -20,6 +20,9 @@
   "bin": {
     "create-es-project": "./bin/index.js"
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsup",
     "watch": "tsup -w"
