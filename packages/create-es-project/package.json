@@ -1,0 +1,37 @@
+{
+  "name": "create-es-project",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Terminal tool for clone project with npm.",
+  "author": "Naily Zero <zero@naily.cc> (https://naily.cc)",
+  "keywords": [
+    "es-project-template"
+  ],
+  "exports": {
+    "./index": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "create-es-project": "./bin/index.js"
+  },
+  "scripts": {
+    "build": "tsup",
+    "watch": "tsup -w"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "cac": "^6.7.14",
+    "es-project": "workspace:*"
+  },
+  "devDependencies": {
+    "tsup": "^8.3.0"
+  }
+}

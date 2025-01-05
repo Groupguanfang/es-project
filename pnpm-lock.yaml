@@ -69,6 +69,19 @@ importers:
         specifier: workspace:*
         version: link:../../packages/es-project
 
+  packages/create-es-project:
+    dependencies:
+      cac:
+        specifier: ^6.7.14
+        version: 6.7.14
+      es-project:
+        specifier: workspace:*
+        version: link:../es-project
+    devDependencies:
+      tsup:
+        specifier: ^8.3.0
+        version: 8.3.5(jiti@2.4.2)(postcss@8.4.49)(tsx@4.19.2)(typescript@5.7.2)(yaml@2.7.0)
+
   packages/es-project:
     dependencies:
       '@types/lodash-es':

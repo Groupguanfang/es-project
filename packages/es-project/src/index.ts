@@ -1,3 +1,5 @@
+export { version } from '../package.json'
+
 export * from './context'
 export * from './create'
 export * from './template-resolver'
