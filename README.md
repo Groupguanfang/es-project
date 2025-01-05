@@ -1,3 +1,11 @@
-# Monorepo
+# es-project
 
-> There are no descriptions for this repository.
+Terminal tool for clone project with npm.
+
+## How to use
+
+It is very easy.
+
+```bash
+npm create es-project [project-path]
+```
