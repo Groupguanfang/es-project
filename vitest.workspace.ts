@@ -5,12 +5,15 @@ import { load } from 'js-yaml'
 import { defineWorkspace } from 'vitest/config'
 
 function loadPnpmWorkspace(): string[] {
-  if (!fs.existsSync(path.join('pnpm-workspace.yaml')))
+  const workspaceFilePath = path.join('pnpm-workspace.yaml')
+  if (!fs.existsSync(workspaceFilePath))
     return []
-  const workspaceFile = fs.readFileSync('pnpm-workspace.yaml', 'utf-8')
-  const parsedFile = (load(workspaceFile) as { packages: string[] }) || { packages: [] }
-  const result = (parsedFile || { packages: [] as string[] }).packages || []
-  return fg.sync(result, { onlyDirectories: true, onlyFiles: false })
+
+  const workspaceFile = fs.readFileSync(workspaceFilePath, 'utf-8')
+  const parsedFile = load(workspaceFile) as { packages?: string[] } || {}
+  const packages = parsedFile.packages || []
+
+  return fg.sync(packages, { onlyDirectories: true, onlyFiles: false })
 }
 
 export default defineWorkspace(loadPnpmWorkspace())
